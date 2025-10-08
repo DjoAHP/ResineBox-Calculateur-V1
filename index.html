@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResineBox</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>ResineBox Calculateur</h1>
+        <h2>Box</h2>
+        <div>
+            <label for="unitSelect">Unité</label>
+            <select id="unitSelect">
+                <option value="cm">cm</option>
+                <option value="mm" selected>mm</option>
+                <option value="in">in</option>
+            </select>
+        </div>
+
+        <div class="grid">
+            <div>
+                <label for="length">L (longueur)</label>
+                <input id="length" type="number" min="0" step="0.01" value="200">
+            </div>
+            <div>
+                <label for="width">W (largeur)</label>
+                <input id="width" type="number" min="0" step="0.01" value="30">
+            </div>
+            <div>
+                <label for="height">H (hauteur)</label>
+                <input id="height" type="number" min="0" step="0.01" value="30">
+            </div>
+
+            <h2>Resine</h2>
+            <div>
+
+                <label for="density">Densité (g/cm³)</label>
+                <input id="density" type="number" min="0.5" step="0.01" value="1">
+            </div>
+            <div>
+                <label for="precision">Décimales</label>
+                <select id="precision">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+            <div style="flex:1">
+                <label style="font-size:12px;color:var(--muted);margin-bottom:4px">Ratio Résine A : Durcisseur B</label>
+                <div class="inline">
+                    <input id="ratioA" type="number" min="0" max="100" step="0.1" value="60"
+                        style="width:84px;padding:6px;border-radius:8px">%
+                    <input id="ratioB" type="number" min="0" max="100" step="0.1" value="40"
+                        style="width:84px;padding:6px;border-radius:8px">%
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+                <button id="preset6040" class="small-btn" type="button">60/40</button>
+                <button id="preset5050" class="small-btn" type="button">50/50</button>
+            </div>
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)"><input id="waste"
+                    type="checkbox">+10%</label>
+        </div>
+
+        <div class="row-center">
+            <button id="computeBtn" class="small-btn primary">Calculer</button>
+            <button id="resetBtn" class="small-btn">Réinit</button>
+        </div>
+
+        <div class="result" aria-live="polite">
+            <div class="stat">
+                <div class="muted">Volume</div>
+                <div id="volumeDisplay" class="val">— ml</div>
+            </div>
+            <div class="stat">
+                <div class="muted">Résine A</div>
+                <div id="compA" class="val">— ml</div>
+            </div>
+            <div class="stat">
+                <div class="muted">Durcisseur B</div>
+                <div id="compB" class="val">— ml</div>
+            </div>
+        </div>
+
+        <div class="footer">Sécurité : gants + lunettes. Vérifie le TDS.</div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+</body>
+
+</html>
